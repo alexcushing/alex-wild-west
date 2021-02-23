@@ -1,0 +1,266 @@
+@font-face {
+    font-family: 'Marlboro';
+    src:  url('../assets/Marlboro.ttf') format('truetype');
+}
+
+::selection {
+    background: #9c0010;
+    color: black;
+}
+::-moz-selection {
+    background: #9c0010;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+}
+
+body:after {
+  animation: grain 8s steps(10) infinite;
+  background-image: url(../assets/paper-pattern.png);
+  content: "";
+  height: 300%;
+  left: -50%;
+  opacity: 0.3;
+  position: fixed;
+  pointer-events: none;
+  top: -110%;
+  width: 300%;
+}
+
+@keyframes in {
+    0% {transform: rotate(0deg)}
+    100% {transform: rotate(90deg)}
+}
+
+@keyframes out {
+    0% {transform: rotate(90deg)}
+    100% {transform: rotate(0deg)}
+}
+
+@keyframes grain {
+  0%, 100% { transform:translate(0, 0) }
+  10% { transform:translate(-5%, -10%) }
+  20% { transform:translate(-15%, 5%) }
+  30% { transform:translate(7%, -25%) }
+  40% { transform:translate(-5%, 25%) }
+  50% { transform:translate(-15%, 10%) }
+  60% { transform:translate(15%, 0%) }
+  70% { transform:translate(0%, 15%) }
+  80% { transform:translate(3%, 35%) }
+  90% { transform:translate(-10%, 10%) }
+}
+
+@keyframes fromRight {
+    0% { background-position: -100vw center }
+    100% { background-position: -20px center }
+}
+
+@keyframes movingTitle {
+    0%, 100% { transform: rotate(.9deg) }
+    9% { transform: rotate(.9deg) }
+    10% { transform: rotate(-.10deg) }
+    19% { transform: rotate(-.10deg) }
+    20% { transform: rotate(.5deg) }
+    29% { transform: rotate(.5deg) }
+    30% { transform: rotate(-.8deg) }
+    39% { transform: rotate(-.8deg) }
+    40% { transform: rotate(.5deg) }
+    49% { transform: rotate(.5deg) }
+    50% { transform: rotate(-.8deg) }
+    59% { transform: rotate(-.8deg) }
+    60% { transform: rotate(.6deg) }
+    69% { transform: rotate(.6deg) }
+    70% { transform: rotate(-.5deg) }
+    79% { transform: rotate(-.5deg) }
+    80% { transform: rotate(.5deg) }
+    89% { transform: rotate(.5deg) }
+    90% { transform: rotate(-.7deg) }
+    99% { transform: rotate(-.7deg) }
+  }
+
+.main {
+    background-image: url(../assets/torn-paper.png);
+    background-color: rgb(37, 24, 7);
+    background-position: center -20px;
+    background-repeat: no-repeat;
+    background-size: 1200px auto;
+    box-sizing: border-box;
+    color: #0e0800;
+    cursor: url('../assets/cursor.png'), auto;
+    font-family: 'Marlboro', 'Times New Roman', Times, serif;
+    /* min-height: 1400px; */
+    margin: 0 auto;
+    padding: 5px 50px;
+}
+
+.main:active {
+    cursor: url('../assets/cursor-pressed.png'), auto;
+}
+
+.title {
+    color: #0e0800;
+    font-weight: normal;
+    font-size: 100px;
+    margin: 200px auto 0;
+    text-align: center;
+}
+
+.sub {
+    font-size: 30px;
+    font-weight: normal;
+    margin: 25px auto 25px;
+    max-width: 700px;
+    overflow: hidden;
+    position: relative;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.sub-up {
+    margin: -30px auto 25px;
+}
+
+.sub::after {
+    content: "....................................................................................................................................................................";
+} 
+
+
+@media only screen and (max-width: 1100px) {
+    .main {
+        background-size: calc(100% + 250px) auto;
+        background-position: center -120px;
+        /* min-height: 1000px; */
+    }
+
+    .title {
+        margin: 50px auto 0;
+    }
+}
+
+.content {
+    animation: movingTitle 8s steps(1) infinite;
+    transform: rotate(.5deg);
+}
+
+.underline {
+    display: block;
+    margin: -55px auto 0;
+    width: 600px;
+}
+
+.title-pi {
+    font-size: 72px;
+    flex: 1 0 auto;
+    padding-right: 93px;
+    margin: 20px 0 0;
+    text-align: left;
+}
+
+.bullet-point {
+    animation: out .2s ease;
+    height: 48px;
+    margin-right: 40px;
+    min-width: 53px;
+    width: 53px;
+    background-image: url(../assets/bullet-point.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 53px;
+}
+
+
+li:hover .bullet-point {
+    animation: in .2s ease;
+    background-image: url(../assets/bullet-point-hover.png);
+    transform: rotate(90deg);
+}
+
+li:hover .title-pi {
+    animation: fromRight .1s ease;
+    background-color: rgba(255, 255, 255, 0);
+    background-image: url(../assets/red-line.png);
+    background-position: -20px center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    cursor: url('../assets/cursor.png'), auto;
+    color: whitesmoke;
+}
+
+.pi {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.about {
+    font-size: 20px;
+    margin: 0 auto;
+    max-width: 700px;
+    text-align: left;
+}
+
+.about::before {
+    content: "";
+    padding-left: 114px;
+}
+
+.list {
+    margin: 0 auto;
+    list-style: none;
+    max-width: 700px;
+}
+
+.contact-list {
+    display: flex;
+    /* flex-direction: column; */
+    padding: 0;
+    list-style: none;
+    max-width: 700px;
+    margin: 0 auto;
+    justify-content: space-evenly;
+}
+
+.contact-list li {
+    display: inline-flex;
+}
+
+.contact {
+    background-position: center 20px;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    color: #0e0800;
+    cursor: url('../assets/cursor.png'), auto;
+    height: 50px;
+    margin: 25px 0;
+    padding: 0;
+    min-width: 30px;
+}
+
+.contact:visited,
+.contact:hover {
+    color: #0e0800;
+}
+
+.cursor:hover {
+    cursor: url('../assets/cursor.png'), auto;
+}
+
+.instagram {
+    background-image: url(../assets/instagram.png);
+}
+
+.twitter {
+    background-image: url(../assets/twitter.png);
+}
+
+.linkedin {
+    background-image: url(../assets/linkedin.png);
+}
+
+.mail {
+    background-image: url(../assets/email.png);
+    background-size: 20px;
+    width: 20px;
+}
